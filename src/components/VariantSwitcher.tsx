@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Layers, ChevronDown, ChevronUp, Sparkles, Shield, Zap } from 'lucide-react';
+import { ChevronDown, ChevronUp, Sparkles, Shield, Zap } from 'lucide-react';
 
 interface VariantSwitcherProps {
   currentVariant: 'a' | 'b' | 'c';
@@ -37,22 +37,22 @@ export const VariantSwitcher: React.FC<VariantSwitcherProps> = ({ currentVariant
   const ActiveIcon = active.icon;
 
   return (
-    <div className="fixed top-3 right-3 z-50 print:hidden font-sans">
+    <div className="fixed bottom-6 right-6 z-50 print:hidden font-sans">
       <div className="bg-neutral-900/95 backdrop-blur-md border border-neutral-700/80 rounded-2xl shadow-2xl p-1.5 transition-all text-xs">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center gap-2.5 px-3 py-1.5 bg-neutral-800 hover:bg-neutral-750 text-white rounded-xl font-medium transition-colors"
+          className="flex items-center gap-2.5 px-3.5 py-2 bg-neutral-800 hover:bg-neutral-750 text-white rounded-xl font-medium transition-colors shadow-lg"
           title="Switch Design Variant"
         >
-          <ActiveIcon className="w-3.5 h-3.5 text-rival-orange" />
+          <ActiveIcon className="w-4 h-4 text-rival-orange" />
           <span className="font-bold text-neutral-200">
             {active.id.toUpperCase()}: <span className="font-normal text-neutral-400">{active.tag}</span>
           </span>
-          {isOpen ? <ChevronUp className="w-3.5 h-3.5 text-neutral-400" /> : <ChevronDown className="w-3.5 h-3.5 text-neutral-400" />}
+          {isOpen ? <ChevronDown className="w-3.5 h-3.5 text-neutral-400" /> : <ChevronUp className="w-3.5 h-3.5 text-neutral-400" />}
         </button>
 
         {isOpen && (
-          <div className="mt-2 p-2 w-80 max-w-[90vw] bg-neutral-950 border border-neutral-800 rounded-xl space-y-1.5 shadow-xl">
+          <div className="mb-2 p-2 w-80 max-w-[90vw] bg-neutral-950 border border-neutral-800 rounded-xl space-y-1.5 shadow-2xl absolute bottom-full right-0">
             <div className="px-2 py-1 text-[10px] uppercase font-mono tracking-widest text-neutral-400 flex items-center justify-between">
               <span>Select Experience Variant</span>
               <span className="text-rival-orange font-bold">Antigravity</span>
