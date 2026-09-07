@@ -1,0 +1,114 @@
+/* Faith Baptist v7 comparison pill, adapted to Rival Q's A–C controls. */
+.preview-dock {
+  position: fixed;
+  inset: auto auto calc(16px + env(safe-area-inset-bottom)) 50%;
+  z-index: 50;
+  width: max-content;
+  max-width: calc(100% - 2 * max(16px, env(safe-area-inset-left), env(safe-area-inset-right)));
+  height: 34px;
+  margin: 0;
+  padding: 0 8px;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, .2);
+  border-radius: 999px;
+  background: #252525;
+  color: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(20, 34, 45, .24);
+  font: 500 11px/1.2 system-ui, sans-serif;
+  text-transform: none;
+  letter-spacing: normal;
+  transform: translateX(-50%);
+}
+
+.preview-dock-scroll {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
+  padding: 2px 4px;
+  box-sizing: border-box;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  white-space: nowrap;
+}
+
+.preview-dock-scroll::-webkit-scrollbar { display: none; }
+
+.preview-designs {
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.preview-group-label {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 6px;
+  margin-right: 4px;
+  color: #BDBDBD;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+
+.preview-dock-icon {
+  display: block;
+  flex: 0 0 12px;
+  width: 12px;
+  height: 12px;
+}
+
+.preview-design {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 28px;
+  height: 28px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #FFFFFF;
+  font: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color .15s ease, color .15s ease;
+}
+
+.preview-design-code { font-weight: 750; }
+.preview-design:hover { background: rgba(255, 255, 255, .12); }
+.preview-design[aria-pressed="true"] { background: #BC2026; }
+.preview-dock-divider { flex: 0 0 1px; width: 1px; height: 16px; background: rgba(255, 255, 255, .28); }
+.preview-design:focus-visible { outline: 2px solid #FFFFFF; outline-offset: -3px; }
+
+/* Preserve room to scroll footer links clear of the floating control. */
+@media screen {
+  .preview-dock ~ footer { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
+}
+
+/* Keep the pill 16px above the existing 68px mobile navigation. */
+@media (width < 640px) {
+  .preview-dock { bottom: calc(84px + env(safe-area-inset-bottom)); }
+}
+
+@media screen and (width < 640px) {
+  .preview-dock ~ footer { padding-bottom: calc(136px + env(safe-area-inset-bottom)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preview-dock-scroll { scroll-behavior: auto; }
+  .preview-design { transition: none; }
+}
