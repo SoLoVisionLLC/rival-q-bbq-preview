@@ -9,6 +9,21 @@
   }
 }
 
+/* Canonical preview dock v8: isolate typography from page and utility styles. */
+.preview-dock {
+  font: 500 11px/1.2 system-ui, sans-serif !important;
+}
+
+.preview-dock * {
+  font: inherit !important;
+}
+
+.preview-dock,
+.preview-dock * {
+  letter-spacing: normal !important;
+  text-transform: none !important;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
