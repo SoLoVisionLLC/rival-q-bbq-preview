@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, Sparkles, Shield, Zap } from 'lucide-react';
+import './VariantSwitcher.css';
 
 interface VariantSwitcherProps {
   currentVariant: 'a' | 'b' | 'c';
